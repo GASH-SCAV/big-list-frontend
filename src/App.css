@@ -1,3 +1,24 @@
+#root {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 1em auto;
+}
+
+form * {
+  padding: 0.25em;
+  margin-left: 0.5em;
+}
+
+form > input[type="submit"] {
+  width: 200px;
+  margin: 0 auto;
+}
+
 .App {
   text-align: center;
 }
@@ -26,6 +47,11 @@
 
 .App-link {
   color: #61dafb;
+}
+
+td {
+  max-width: 500px;
+  text-align: left;
 }
 
 @keyframes App-logo-spin {

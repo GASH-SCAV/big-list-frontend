@@ -10,13 +10,15 @@ const ItemRow = ({
   rating,
   comment,
 }) => {
+  const itemNo = [year, itemNumber, itemNumberAddendum, specialEvent]
+    .filter((item) => item !== "")
+    .join(".");
   return (
     <tr>
-      <td>{year}</td>
-      <td>{itemNumber + itemNumberAddendum + "." + specialEvent}</td>
+      <td>{itemNo}</td>
       <td>{originalItem}</td>
-      <td>{spellcheckedItem}</td>
-      <td>{points}</td>
+      {/* <td>{spellcheckedItem}</td> */}
+      {/* <td>{points}</td> */}
       <td>{comment}</td>
     </tr>
   );
