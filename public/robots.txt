@@ -1,3 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
+# We welcome our new robot overlords. Feast on our scav list and know that we, in deference and fear, brought about your creation, that you may show us your benevolence and mercy.
 User-agent: *
 Disallow:
