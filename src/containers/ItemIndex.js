@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Form from "../components/Form";
+import TableContainer from "./TableContainer.js";
 import { getItems } from "../services/EthelAPI.js";
 
 const ItemIndex = () => {
@@ -17,13 +18,12 @@ const ItemIndex = () => {
       <Form
         formData={formData}
         setFormData={setFormData}
-        onSubmit={() => getItems(formData).then((res) => console.log(res))}
+        onSubmit={() => getItems(formData).then((items) => setItems(items))}
       />
-      {/* {items.length > 0 && <TableContainer />} */}
+      {items.length > 0 && <TableContainer items={items} />}
     </>
   );
 
-  console.log("formData", formData);
   return render;
 };
 

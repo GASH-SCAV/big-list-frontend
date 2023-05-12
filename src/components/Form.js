@@ -49,7 +49,7 @@ const Form = ({ formData, setFormData, onSubmit }) => {
           ))}
         </select>
       </label>
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Load Items" />
     </form>
   );
 };
