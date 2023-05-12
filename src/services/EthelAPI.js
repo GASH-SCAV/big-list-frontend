@@ -1,8 +1,4 @@
-const isDevelopment = process.env.NODE_ENV === "development";
-
-const api = isDevelopment
-  ? "http://localhost:3000"
-  : "https://the-big-list-backend.herokuapp.com";
+const api = "https://the-big-list-backend.herokuapp.com";
 
 export const getItems = (params) => {
   const {
