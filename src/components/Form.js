@@ -15,7 +15,13 @@ const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
     >
       <label>
         Year:
-        <input onChange={onChange} type="text" name="year" value={year} />
+        <input
+          placeholder="You can leave this blank"
+          onChange={onChange}
+          type="text"
+          name="year"
+          value={year}
+        />
       </label>
       <label>
         Item Number:
@@ -23,6 +29,7 @@ const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
           type="text"
           name="itemNumber"
           value={itemNumber}
+          placeholder="You can leave this blank"
           onChange={onChange}
         />
       </label>
@@ -32,16 +39,28 @@ const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
           type="text"
           name="itemText"
           value={itemText}
+          placeholder="You can leave this blank"
           onChange={onChange}
         />
       </label>
       <label>
         Points:
-        <input type="text" name="points" value={points} onChange={onChange} />
+        <input
+          type="text"
+          name="points"
+          value={points}
+          placeholder="You can leave this blank"
+          onChange={onChange}
+        />
       </label>
       <label>
         Rating:
-        <select name="rating" value={rating} onChange={onChange}>
+        <select
+          name="rating"
+          value={rating}
+          placeholder="You can leave this blank"
+          onChange={onChange}
+        >
           {options.map((option) => (
             <option key={option} value={option}>
               {option}
