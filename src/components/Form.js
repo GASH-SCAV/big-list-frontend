@@ -49,7 +49,7 @@ const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
           ))}
         </select>
       </label>
-      <input type="submit" value="Filter Items" />
+      <input type="submit" value="Get the Items" />
     </form>
   );
 };

@@ -1,16 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Form from "../components/Form";
 import TableContainer from "./TableContainer.js";
 import { getItems } from "../services/EthelAPI.js";
-import filterItems from "../services/filterItems.js";
 
 const ItemIndex = () => {
-  useEffect(() => {
-    getItems(formData).then((items) => {
-      setItems(items);
-      setFilteredItems(items);
-    });
-  }, []);
   const [formData, setFormData] = useState({
     year: "",
     itemNumber: "",
@@ -19,18 +12,21 @@ const ItemIndex = () => {
     rating: "Caution",
   });
   const [items, setItems] = useState([]);
-  const [filteredItems, setFilteredItems] = useState([]);
   const hasItems = items.length > 0;
+  const fetchItems = () => getItems(formData).then(setItems);
   const render = (
     <>
-      <h1>Ethel</h1>
+      <h1>The Item-Tum Tugger</h1>
+      <marquee>
+        <h3>Is a curious app</h3>
+      </marquee>
       <Form
         formData={formData}
         setFormData={setFormData}
         hasItems={hasItems}
-        onSubmit={() => setFilteredItems(filterItems(formData, items))}
+        onSubmit={fetchItems}
       />
-      {hasItems && <TableContainer items={filteredItems} />}
+      {hasItems && <TableContainer items={items} />}
     </>
   );
 
