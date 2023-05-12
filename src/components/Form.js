@@ -1,4 +1,4 @@
-const Form = ({ formData, setFormData, onSubmit }) => {
+const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
   const { year, itemNumber, itemText, points, rating } = formData;
   const options = ["Safe", "Caution", "NSFP"];
   const onChange = (e) => {
@@ -49,7 +49,10 @@ const Form = ({ formData, setFormData, onSubmit }) => {
           ))}
         </select>
       </label>
-      <input type="submit" value="Load Items" />
+      {/* <input
+        type="submit"
+        value={hasItems ? "Repopulate Items" : "Load Items"}
+      /> */}
     </form>
   );
 };
