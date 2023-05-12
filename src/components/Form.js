@@ -49,10 +49,7 @@ const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
           ))}
         </select>
       </label>
-      {/* <input
-        type="submit"
-        value={hasItems ? "Repopulate Items" : "Load Items"}
-      /> */}
+      <input type="submit" value="Filter Items" />
     </form>
   );
 };

@@ -6,7 +6,10 @@ import filterItems from "../services/filterItems.js";
 
 const ItemIndex = () => {
   useEffect(() => {
-    getItems(formData).then((items) => setItems(items));
+    getItems(formData).then((items) => {
+      setItems(items);
+      setFilteredItems(items);
+    });
   }, []);
   const [formData, setFormData] = useState({
     year: "",
@@ -16,8 +19,7 @@ const ItemIndex = () => {
     rating: "Caution",
   });
   const [items, setItems] = useState([]);
-  const filteredItems = filterItems(formData, items);
-  console.log("filteredItems", filteredItems);
+  const [filteredItems, setFilteredItems] = useState([]);
   const hasItems = items.length > 0;
   const render = (
     <>
@@ -26,7 +28,7 @@ const ItemIndex = () => {
         formData={formData}
         setFormData={setFormData}
         hasItems={hasItems}
-        onSubmit={() => getItems(formData).then((items) => setItems(items))}
+        onSubmit={() => setFilteredItems(filterItems(formData, items))}
       />
       {hasItems && <TableContainer items={filteredItems} />}
     </>
