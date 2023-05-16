@@ -1,3 +1,10 @@
+html {
+  --background-main-color: white;
+  --font-main-color: black;
+  --table-highlight-color: lightgray;
+  --table-padding-size: 5px;
+}
+
 #root {
   text-align: center;
 }
@@ -57,9 +64,37 @@ form > input[type="submit"] {
   color: #61dafb;
 }
 
+.results table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background: var(--font-main-color);
+  color: var(--background-main-color);
+}
+
+th {
+  padding: var(--table-padding-size);
+}
+
 td {
   max-width: 500px;
   text-align: left;
+  padding: var(--table-padding-size);
+  margin: 0;
+  border: 1px solid var(--table-highlight-color);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--table-highlight-color);
+}
+
+tbody tr:nth-child(odd) td {
+  border-color: var(--background-main-color);
+  outline: inset 1px var(--background-main-color);
 }
 
 @keyframes App-logo-spin {
