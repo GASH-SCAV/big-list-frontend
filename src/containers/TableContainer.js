@@ -5,8 +5,8 @@ const TableContainer = ({ items }) => {
   return (
     <div className="results">
       <table>
+        <ItemHeader />
         <tbody>
-          <ItemHeader />
           {items.map((item) => (
             <ItemRow key={item.id} {...item} />
           ))}
