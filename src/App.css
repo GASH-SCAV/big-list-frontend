@@ -3,6 +3,7 @@ html {
   --font-main-color: black;
   --table-highlight-color: lightgray;
   --table-padding-size: 5px;
+  color-scheme: light dark
 }
 
 #root {
@@ -103,5 +104,16 @@ tbody tr:nth-child(odd) td {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  thead {
+    color: var(--font-main-color);
+    background: var(--background-main-color);
+  }
+
+  tbody tr:nth-child(odd) td {
+    color: var(--font-main-color);
   }
 }
