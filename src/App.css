@@ -28,9 +28,8 @@ html {
   --table-highlight-color: var(--base03);
   --table-padding-size: 5px;
 
-
-  background-color: var(--base3);
-  color: var(--base00);
+  background-color: var(--background-main-color);
+  color: var(--font-main-color);
   text-align: center;
   color-scheme: light dark
 }
@@ -122,24 +121,5 @@ tbody tr:nth-child(odd) td {
     --font-heading-color: var(--base1);
     --font-table-highlight-color: var(--base00);
     --table-highlight-color: var(--base3);
-  }
-  
-  html {
-    background-color: var(--background-main-color);
-    color: var(--font-main-color);
-    text-align: center;
-  }
-
-  td {
-    border-color: var(--table-highlight-color);
-  }
-
-  tbody tr:nth-child(odd) {
-    border-color: var(--background-main-color);
-    outline-color: var(--background-main-color);
-  }
-
-  tbody tr:nth-child(odd) td {
-    color: var(--font-table-highlight-color);
   }
 }
