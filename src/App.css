@@ -1,19 +1,61 @@
+:root {
+  /* Solarized Colors */
+  --base03:    #002b36;
+  --base02:    #073642;
+  --base01:    #586e75;
+  --base00:    #657b83;
+  --base0:     #839496;
+  --base1:     #93a1a1;
+  --base2:     #eee8d5;
+  --base3:     #fdf6e3;
+  --yellow:    #b58900;
+  --orange:    #cb4b16;
+  --red:       #dc322f;
+  --magenta:   #d33682;
+  --violet:    #6c71c4;
+  --blue:      #268bd2;
+  --cyan:      #2aa198;
+  --green:     #859900;
+  /* END Solarized Colors*/
+}
+
 html {
-  --background-main-color: white;
-  --font-main-color: black;
-  --table-highlight-color: lightgray;
+  --background-main-color: var(--base3);
+  --background-inverted-color: var(--base03);
+  --font-main-color: var(--base00);
+  --font-heading-color: var(--base01);
+  --font-table-highlight-color: var(--base0);
+  --table-highlight-color: var(--base03);
   --table-padding-size: 5px;
+
+  background-color: var(--background-main-color);
+  color: var(--font-main-color);
+  text-align: center;
   color-scheme: light dark
 }
 
-#root {
-  text-align: center;
+body {
+  margin: 2em 2em 5em 2em;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: var(--font-heading-color);
+  border-color: var(--font-main-color);
+}
+
+a, a:active, a:visited {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--magenta);
+  text-decoration: underline;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  width: 550px;
   margin: 1em auto;
 }
 
@@ -35,36 +77,6 @@ form > input[type="submit"] {
   margin: 0 auto;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 .results table {
   margin: 0 auto;
   border-collapse: collapse;
@@ -73,12 +85,14 @@ form > input[type="submit"] {
 thead {
   position: sticky;
   top: 0;
-  background: var(--font-main-color);
-  color: var(--background-main-color);
+  background: var(--blue);
+  color: var(--base3);
+  outline: inset 1px var(--blue);
 }
 
 th {
   padding: var(--table-padding-size);
+  height: 1.3em;
 }
 
 td {
@@ -86,7 +100,7 @@ td {
   text-align: left;
   padding: var(--table-padding-size);
   margin: 0;
-  border: 1px solid var(--table-highlight-color);
+  outline: solid 1px var(--font-table-highlight-color);
 }
 
 tbody tr:nth-child(odd) {
@@ -94,26 +108,17 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:nth-child(odd) td {
-  border-color: var(--background-main-color);
-  outline: inset 1px var(--background-main-color);
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  color: var(--font-table-highlight-color);
+  outline: solid 1px var(--font-table-highlight-color);
 }
 
 @media (prefers-color-scheme: dark) {
-  thead {
-    color: var(--font-main-color);
-    background: var(--background-main-color);
-  }
-
-  tbody tr:nth-child(odd) td {
-    color: var(--font-main-color);
+  :root {
+    --background-main-color: var(--base03);
+    --background-inverted-color: var(--base3);
+    --font-main-color: var(--base0);
+    --font-heading-color: var(--base1);
+    --font-table-highlight-color: var(--base00);
+    --table-highlight-color: var(--base3);
   }
 }
