@@ -53,6 +53,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.bold {
+  font-weight: 700;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -112,6 +116,10 @@ tbody tr:nth-child(odd) td {
   outline: solid 1px var(--font-table-highlight-color);
 }
 
+.mobileDisplay {
+  display: none;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background-main-color: var(--base03);
@@ -120,5 +128,15 @@ tbody tr:nth-child(odd) td {
     --font-heading-color: var(--base1);
     --font-table-highlight-color: var(--base00);
     --table-highlight-color: var(--base3);
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .mobileDisplay {
+    display: table-cell;
+  }
+
+  .bigDisplay {
+    display: none;
   }
 }
