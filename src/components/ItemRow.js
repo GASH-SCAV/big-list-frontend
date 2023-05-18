@@ -15,9 +15,10 @@ const ItemRow = ({
     .join(".");
   return (
     <tr>
-      <td>{itemNo}</td>
-      <td>{originalItem}</td>
-      <td>{comment}</td>
+      <td className="bigDisplay">{itemNo}</td>
+      <td className="bigDisplay">{originalItem}</td>
+      <td className="bigDisplay">{comment}</td>
+      <td className="mobileDisplay"><span className="bold">{itemNo}.</span> {originalItem}</td>
     </tr>
   );
 };

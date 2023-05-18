@@ -2,11 +2,12 @@ const ItemHeader = () => {
   return (
     <thead>
       <tr>
-        <th>Item Number</th>
-        <th>Original Item</th>
+        <th className="bigDisplay">Item Number</th>
+        <th className="bigDisplay">Original Item</th>
         {/* <th>Spellchecked Item</th> */}
         {/* <th>Points</th> */}
-        <th>Comment</th>
+        <th className="bigDisplay">Comment</th>
+        <th className="mobileDisplay">Item</th>
       </tr>
     </thead>
   );
