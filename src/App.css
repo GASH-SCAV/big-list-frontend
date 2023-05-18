@@ -83,6 +83,7 @@ form label {
 form input[type="text"],
 form select {
   width: 160px;
+  align-self: center;
 }
 
 input::placeholder {
