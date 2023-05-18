@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   /* Solarized Colors */
   --base03:    #002b36;
@@ -58,18 +64,25 @@ a:hover {
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 0.5em;
+  column-gap: 0.5em;
   margin: 1em auto;
 }
 
 form * {
   padding: 0.25em;
-  margin-left: 0.5em;
 }
 
-form input[type="text"] {
-  width: 150px;
+form label {
+  justify-self: end;
+  padding-right: 0;
+}
+
+form input[type="text"],
+form select {
+  width: 160px;
 }
 
 input::placeholder {
@@ -79,6 +92,7 @@ input::placeholder {
 form > input[type="submit"] {
   width: 200px;
   margin: 0 auto;
+  grid-column-start: span 2;
 }
 
 .results table {
