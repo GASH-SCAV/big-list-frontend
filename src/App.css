@@ -101,6 +101,62 @@ form > input[type="submit"] {
   grid-column-start: span 2;
 }
 
+.button {
+  /* reset styles */ 
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+
+  @media screen and (-ms-high-contrast: active) {
+    border: 2px solid currentcolor;
+  }
+  /* END reset */
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--blue);
+  color: var(--font-thead-color);
+  border-radius: 0.5em;;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+
+  padding: 0.25em 0.75em;
+  min-width: 10ch;
+  min-height: 44px;
+  text-align: center;
+  line-height: 1.1;
+  font-size: 1.25em;
+  font-weight: 700;
+
+  transition: 220ms all ease-in-out;
+
+  &:hover,
+  &:active {
+    --btn-hover-bg: color-mix(in srgb, var(--blue) 70%, black 30%);
+    background-color: var(--violet); /* if color-mix unsupported */
+    background-color: var(--btn-hover-bg);
+  
+    @media (prefers-color-scheme: dark) {
+      --btn-hover-bg: color-mix(in srgb, var(--blue) 70%, white 30%);
+      color: var(--base03);
+    }
+  }
+
+  &:focus {
+    --focus-color: #4F0A7A;
+    outline-style: solid;
+    outline-color: transparent;
+    box-shadow: 0 0 0 4px var(--focus-color);
+  
+    @media (prefers-color-scheme: dark) {
+      --focus-color: #FFF861;
+    }
+  }
+}
+
 .results table {
   margin: 0 auto;
   border-collapse: collapse;

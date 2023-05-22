@@ -78,7 +78,7 @@ const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
         ))}
       </select>
 
-      <input type="submit" value="Get the Items" />
+      <input type="submit" value="Get the Items" className="button" />
     </form>
   );
 };
