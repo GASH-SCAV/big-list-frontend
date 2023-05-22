@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   /* Solarized Colors */
   --base03:    #002b36;
@@ -8,6 +14,7 @@
   --base1:     #93a1a1;
   --base2:     #eee8d5;
   --base3:     #fdf6e3;
+  --base4:     #fefbf1; /* color-mix(in srgb, var(--base3), white) */
   --yellow:    #b58900;
   --orange:    #cb4b16;
   --red:       #dc322f;
@@ -20,18 +27,22 @@
 }
 
 html {
-  --background-main-color: var(--base3);
+  --background-main-color: var(--base4);
+  --background-main-color: color-mix(in srgb, var(--base3), white);
   --background-inverted-color: var(--base03);
-  --font-main-color: var(--base00);
-  --font-heading-color: var(--base01);
-  --font-table-highlight-color: var(--base0);
+  --font-main-color: var(--base03);
+  --font-heading-color: var(--base02);
+  --font-table-highlight-color: var(--base3);
+  --font-thead-color: white;
+  --thead-background-color: var(--blue);
   --table-highlight-color: var(--base03);
+  --table-border-color: var(--base0);
   --table-padding-size: 5px;
 
   background-color: var(--background-main-color);
   color: var(--font-main-color);
   text-align: center;
-  color-scheme: light dark
+  color-scheme: light dark;
 }
 
 body {
@@ -58,18 +69,26 @@ a:hover {
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 0.5em;
+  column-gap: 0.5em;
   margin: 1em auto;
 }
 
 form * {
   padding: 0.25em;
-  margin-left: 0.5em;
 }
 
-form input[type="text"] {
-  width: 150px;
+form label {
+  justify-self: end;
+  padding-right: 0;
+}
+
+form input[type="text"],
+form select {
+  width: 160px;
+  align-self: center;
 }
 
 input::placeholder {
@@ -79,6 +98,63 @@ input::placeholder {
 form > input[type="submit"] {
   width: 200px;
   margin: 0 auto;
+  grid-column-start: span 2;
+}
+
+.button {
+  /* reset styles */ 
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+
+  @media screen and (-ms-high-contrast: active) {
+    border: 2px solid currentcolor;
+  }
+  /* END reset */
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--blue);
+  color: var(--font-thead-color);
+  border-radius: 0.5em;;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+
+  padding: 0.25em 0.75em;
+  min-width: 10ch;
+  min-height: 44px;
+  text-align: center;
+  line-height: 1.1;
+  font-size: 1.25em;
+  font-weight: 700;
+
+  transition: 220ms all ease-in-out;
+
+  &:hover,
+  &:active {
+    --btn-hover-bg: color-mix(in srgb, var(--blue) 70%, black 30%);
+    background-color: var(--violet); /* if color-mix unsupported */
+    background-color: var(--btn-hover-bg);
+  
+    @media (prefers-color-scheme: dark) {
+      --btn-hover-bg: color-mix(in srgb, var(--blue) 70%, white 30%);
+      color: var(--base03);
+    }
+  }
+
+  &:focus {
+    --focus-color: #4F0A7A;
+    outline-style: solid;
+    outline-color: transparent;
+    box-shadow: 0 0 0 4px var(--focus-color);
+  
+    @media (prefers-color-scheme: dark) {
+      --focus-color: #FFF861;
+    }
+  }
 }
 
 .results table {
@@ -89,14 +165,15 @@ form > input[type="submit"] {
 thead {
   position: sticky;
   top: 0;
-  background: var(--blue);
-  color: var(--base3);
-  outline: inset 1px var(--blue);
+  background: var(--thead-background-color);
+  color: var(--font-thead-color);
+  outline: inset 1px var(--thead-background-color);
 }
 
 th {
   padding: var(--table-padding-size);
   height: 1.3em;
+  outline: solid 1px var(--table-border-color);
 }
 
 td {
@@ -104,7 +181,7 @@ td {
   text-align: left;
   padding: var(--table-padding-size);
   margin: 0;
-  outline: solid 1px var(--font-table-highlight-color);
+  outline: solid 1px var(--table-border-color);
 }
 
 tbody tr:nth-child(odd) {
@@ -113,7 +190,7 @@ tbody tr:nth-child(odd) {
 
 tbody tr:nth-child(odd) td {
   color: var(--font-table-highlight-color);
-  outline: solid 1px var(--font-table-highlight-color);
+  outline: solid 1px var(--table-border-color);
 }
 
 .mobileDisplay {
@@ -121,13 +198,14 @@ tbody tr:nth-child(odd) td {
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  html {
     --background-main-color: var(--base03);
     --background-inverted-color: var(--base3);
-    --font-main-color: var(--base0);
-    --font-heading-color: var(--base1);
-    --font-table-highlight-color: var(--base00);
+    --font-main-color: var(--base3);
+    --font-heading-color: var(--base2);
+    --font-table-highlight-color: var(--base03);
     --table-highlight-color: var(--base3);
+    --table-border-color: var(--base00);
   }
 }
 

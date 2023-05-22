@@ -13,62 +13,72 @@ const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
         onSubmit();
       }}
     >
-      <label>
+      <label for="year" title="The first year of the Hunt was 1987">
         Year:
-        <input
-          placeholder="You can leave this blank"
-          onChange={onChange}
-          type="text"
-          name="year"
-          value={year}
-        />
       </label>
-      <label>
+      <input
+        placeholder="You can leave this blank"
+        onChange={onChange}
+        type="text"
+        name="year"
+        id="year"
+        value={year}
+      />
+
+      <label for="itemNumber" title="Many lists have 300+ items; few have over 350">
         Item Number:
-        <input
-          type="text"
-          name="itemNumber"
-          value={itemNumber}
-          placeholder="You can leave this blank"
-          onChange={onChange}
-        />
       </label>
-      <label>
+      <input
+        type="text"
+        name="itemNumber"
+        id="itemNumber"
+        value={itemNumber}
+        placeholder="You can leave this blank"
+        onChange={onChange}
+      />
+        
+      <label for="itemText">
         Item Text:
-        <input
-          type="text"
-          name="itemText"
-          value={itemText}
-          placeholder="You can leave this blank"
-          onChange={onChange}
-        />
       </label>
-      <label>
+      <input
+        type="text"
+        name="itemText"
+        id="itemText"
+        value={itemText}
+        placeholder="You can leave this blank"
+        onChange={onChange}
+      />
+        
+      <label for="points" title="Most items under 300 points, but can go significantly higher">
         Points:
-        <input
-          type="text"
-          name="points"
-          value={points}
-          placeholder="You can leave this blank"
-          onChange={onChange}
-        />
       </label>
-      <label>
+      <input
+        type="text"
+        name="points"
+        id="points"
+        value={points}
+        placeholder="You can leave this blank"
+        onChange={onChange}
+      />
+      
+      <label for="rating" title="Like safe search, determines how risque search results can be. Caution includes rude or dirty results. NSFP is offensive.">
         Rating:
-        <select
-          name="rating"
-          value={rating}
-          placeholder="You can leave this blank"
-          onChange={onChange}
-        >
-          {options.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
       </label>
-      <input type="submit" value="Get the Items" />
+      <select
+        name="rating"
+        id="rating"
+        value={rating}
+        placeholder="You can leave this blank"
+        onChange={onChange}
+      >
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+
+      <input type="submit" value="Get the Items" className="button" />
     </form>
   );
 };
