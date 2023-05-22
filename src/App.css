@@ -14,6 +14,7 @@
   --base1:     #93a1a1;
   --base2:     #eee8d5;
   --base3:     #fdf6e3;
+  --base4:     #fefbf1; /* color-mix(in srgb, var(--base3), white) */
   --yellow:    #b58900;
   --orange:    #cb4b16;
   --red:       #dc322f;
@@ -26,18 +27,22 @@
 }
 
 html {
-  --background-main-color: var(--base3);
+  --background-main-color: var(--base4);
+  --background-main-color: color-mix(in srgb, var(--base3), white);
   --background-inverted-color: var(--base03);
-  --font-main-color: var(--base00);
-  --font-heading-color: var(--base01);
-  --font-table-highlight-color: var(--base0);
+  --font-main-color: var(--base03);
+  --font-heading-color: var(--base02);
+  --font-table-highlight-color: var(--base3);
+  --font-thead-color: white;
+  --thead-background-color: var(--blue);
   --table-highlight-color: var(--base03);
+  --table-border-color: var(--base0);
   --table-padding-size: 5px;
 
   background-color: var(--background-main-color);
   color: var(--font-main-color);
   text-align: center;
-  color-scheme: light dark
+  color-scheme: light dark;
 }
 
 body {
@@ -104,14 +109,15 @@ form > input[type="submit"] {
 thead {
   position: sticky;
   top: 0;
-  background: var(--blue);
-  color: var(--base3);
-  outline: inset 1px var(--blue);
+  background: var(--thead-background-color);
+  color: var(--font-thead-color);
+  outline: inset 1px var(--thead-background-color);
 }
 
 th {
   padding: var(--table-padding-size);
   height: 1.3em;
+  outline: solid 1px var(--table-border-color);
 }
 
 td {
@@ -119,7 +125,7 @@ td {
   text-align: left;
   padding: var(--table-padding-size);
   margin: 0;
-  outline: solid 1px var(--font-table-highlight-color);
+  outline: solid 1px var(--table-border-color);
 }
 
 tbody tr:nth-child(odd) {
@@ -128,7 +134,7 @@ tbody tr:nth-child(odd) {
 
 tbody tr:nth-child(odd) td {
   color: var(--font-table-highlight-color);
-  outline: solid 1px var(--font-table-highlight-color);
+  outline: solid 1px var(--table-border-color);
 }
 
 .mobileDisplay {
@@ -136,13 +142,14 @@ tbody tr:nth-child(odd) td {
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  html {
     --background-main-color: var(--base03);
     --background-inverted-color: var(--base3);
-    --font-main-color: var(--base0);
-    --font-heading-color: var(--base1);
-    --font-table-highlight-color: var(--base00);
+    --font-main-color: var(--base3);
+    --font-heading-color: var(--base2);
+    --font-table-highlight-color: var(--base03);
     --table-highlight-color: var(--base3);
+    --table-border-color: var(--base00);
   }
 }
 
