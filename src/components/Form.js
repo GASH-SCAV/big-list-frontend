@@ -13,7 +13,7 @@ const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
         onSubmit();
       }}
     >
-      <label for="year" title="The first year of the Hunt was 1987">
+      <label htmlFor="year" title="The first year of the Hunt was 1987">
         Year:
       </label>
       <input
@@ -25,7 +25,7 @@ const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
         value={year}
       />
 
-      <label for="itemNumber" title="Many lists have 300+ items; few have over 350">
+      <label htmlFor="itemNumber" title="Many lists have 300+ items; few have over 350">
         Item Number:
       </label>
       <input
@@ -37,7 +37,7 @@ const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
         onChange={onChange}
       />
         
-      <label for="itemText">
+      <label htmlFor="itemText">
         Item Text:
       </label>
       <input
@@ -49,7 +49,7 @@ const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
         onChange={onChange}
       />
         
-      <label for="points" title="Most items under 300 points, but can go significantly higher">
+      <label htmlFor="points" title="Most items under 300 points, but can go significantly higher">
         Points:
       </label>
       <input
@@ -61,7 +61,7 @@ const Form = ({ formData, setFormData, onSubmit, hasItems }) => {
         onChange={onChange}
       />
       
-      <label for="rating" title="Like safe search, determines how risque search results can be. Caution includes rude or dirty results. NSFP is offensive.">
+      <label htmlFor="rating" title="Like safe search, determines how risque search results can be. Caution includes rude or dirty results. NSFP is offensive.">
         Rating:
       </label>
       <select
